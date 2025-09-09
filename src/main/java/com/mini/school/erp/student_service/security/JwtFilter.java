@@ -50,7 +50,6 @@ public class JwtFilter extends OncePerRequestFilter {
                 if (jwtUtil.validateToken(token, userDetails)) {
 
                     String role = jwtUtil.extractRole(token); // "ADMIN" or "STAFF"
-                    System.out.println("role"+ role);
                     SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
 
                     UsernamePasswordAuthenticationToken authToken =
